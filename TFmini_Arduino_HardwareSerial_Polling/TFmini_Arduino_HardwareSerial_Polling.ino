@@ -3,8 +3,8 @@ void getTFminiData(int* distance, int* strength) {
   char j = 0;
   int checksum = 0; 
   static int rx[9];
-  if(Serial.available()) {  
-    rx[i] = Serial.read();
+  if(Serial2.available()) {
+    rx[i] = Serial2.read();
     if(rx[0] != 0x59) {
       i = 0;
     } else if(i == 1 && rx[1] != 0x59) {
@@ -26,6 +26,7 @@ void getTFminiData(int* distance, int* strength) {
 
 void setup() {
   Serial.begin(115200);
+  Serial2.begin(115200);
 }
 
 void loop() {
